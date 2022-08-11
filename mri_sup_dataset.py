@@ -31,7 +31,7 @@ def add_rician_noise(image, gain=0.1):
   n1 = n1 / np.max(n1)
   n2 = np.random.normal(0, 1, (image.shape[-2], image.shape[-1]))
   n2 = n2 / np.max(n2)
-  return torch.tensor(clip_img(np.abs(image + intensity*n1 + intensity*n2*1j)))
+  return torch.tensor(clip_img(np.abs(image + gain*n1 + gain*n2*1j)))
 
 def noiseSimV1(img_tensor):
   img_tensor = img_tensor.detach().cpu()
