@@ -79,7 +79,7 @@ if __name__ == "__main__":
   # Create Dataloaders
   train_loader = torch.utils.data.DataLoader(train_set, batch_size=args.batch_size, num_workers=args.num_workers)
   val_loader = torch.utils.data.DataLoader(val_set, batch_size=args.batch_size, num_workers=args.num_workers)
-  test_loader = train_loader = torch.utils.data.DataLoader(test_set, batch_size=args.batch_size, num_workers=args.num_workers)
+  test_loader = torch.utils.data.DataLoader(test_set, batch_size=args.batch_size, num_workers=args.num_workers)
 
   # Send logs to weights and biases
   wandb_logger = WandbLogger(project=args.proj_name, name=args.run_name)
