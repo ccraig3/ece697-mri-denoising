@@ -86,7 +86,13 @@ if __name__ == "__main__":
 
   # Setup Pytorch Lightning trainer
   print('Setup trainer...', flush=True)
-  trainer = pl.Trainer(max_epochs=args.max_epochs, accelerator='gpu', devices=args.num_gpus, default_root_dir=args.ckpt_save_path, logger=wandb_logger, precision=args.precision)
+  checkpoint_callback = pl.callbacks.ModelCheckpoint(
+    dirpath=args.ckpt_save_path,
+    filename='{epoch}',
+    monitor='val/loss',
+    save_top_k=-1
+  )
+  trainer = pl.Trainer(max_epochs=args.max_epochs, accelerator='gpu', devices=args.num_gpus, default_root_dir=args.ckpt_save_path, logger=wandb_logger, precision=args.precision, , callbacks=[checkpoint_callback])
   print('Done')
 
   # Build model
