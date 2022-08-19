@@ -1,0 +1,4 @@
+[submodule "CycleGAN_Approach"]
+	path = CycleGAN_Approach
+	url = https://github.com/jhiemstrawisc/ECE-697-Capstone-Project
+	branch = main
