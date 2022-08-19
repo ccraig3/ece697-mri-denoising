@@ -92,7 +92,7 @@ if __name__ == "__main__":
     monitor='val/loss',
     save_top_k=-1
   )
-  trainer = pl.Trainer(max_epochs=args.max_epochs, accelerator='gpu', devices=args.num_gpus, default_root_dir=args.ckpt_save_path, logger=wandb_logger, precision=args.precision, , callbacks=[checkpoint_callback])
+  trainer = pl.Trainer(max_epochs=args.max_epochs, accelerator='gpu', devices=args.num_gpus, default_root_dir=args.ckpt_save_path, logger=wandb_logger, precision=args.precision, callbacks=[checkpoint_callback])
   print('Done')
 
   # Build model
